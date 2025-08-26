@@ -54,8 +54,8 @@ king_lists <- read_xlsx(here("data", "king-lists.xlsx"), col_types = "text") |>
   mutate(across(-specimen, as.factor))
 ```
 
-This document describes a cladistic analysis of `r length(king_lists)` Maya king lists.
-The analysis was performed in `r R.version$version.string` [@R2025] and visualised presented with ggtree [@YuEtAl2017; @Yu2020; @Yu2022].
+This document describes a cladistic analysis of `r nrow(king_lists)` Maya king lists described in terms of `r ncol(king_lists) - 1` categorical traits.
+The analysis was performed in `r R.version$version.string` [@R2025] and visualised with ggtree [@YuEtAl2017; @Yu2020; @Yu2022].
 
 There are several methods we can use to generate a dendrogram of this data:
 the simplest, hierarchical clustering, only considers the relative 'dissimilarity' between specimens;

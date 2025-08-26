@@ -3123,7 +3123,7 @@ vertical-align: -.125em;
 </header>
 
 
-<p>This document describes a cladistic analysis of 72 Maya king lists. The analysis was performed in R version 4.5.1 (2025-06-13) <span class="citation" data-cites="R2025">(<a href="#ref-R2025" role="doc-biblioref">R Core Team 2025</a>)</span> and visualised presented with ggtree <span class="citation" data-cites="YuEtAl2017 Yu2020 Yu2022">(<a href="#ref-YuEtAl2017" role="doc-biblioref">Yu et al. 2017</a>; <a href="#ref-Yu2020" role="doc-biblioref">Yu 2020</a>, <a href="#ref-Yu2022" role="doc-biblioref">2022</a>)</span>.</p>
+<p>This document describes a cladistic analysis of 12 Maya king lists described in terms of 71 categorical traits. The analysis was performed in R version 4.5.1 (2025-06-13) <span class="citation" data-cites="R2025">(<a href="#ref-R2025" role="doc-biblioref">R Core Team 2025</a>)</span> and visualised with ggtree <span class="citation" data-cites="YuEtAl2017 Yu2020 Yu2022">(<a href="#ref-YuEtAl2017" role="doc-biblioref">Yu et al. 2017</a>; <a href="#ref-Yu2020" role="doc-biblioref">Yu 2020</a>, <a href="#ref-Yu2022" role="doc-biblioref">2022</a>)</span>.</p>
 <p>There are several methods we can use to generate a dendrogram of this data: the simplest, hierarchical clustering, only considers the relative ‘dissimilarity’ between specimens; the unrooted phylogenetic tree introduces the assumption that these dissimilarities are the result of a process of copying-with-error; the rooted phylogenetic tree further assumes that specimen K1372 is the most conservative copy.</p>
 <section id="hierarchical-clustering" class="level2">
 <h2 class="anchored" data-anchor-id="hierarchical-clustering">Hierarchical clustering</h2>
@@ -3196,8 +3196,8 @@ Table 1: Ancestral state reconstruction for inferred archetypes (see <a href="#
 
     <script>
 
-      function styleCell_2lst47hlkw9fh7x1h7h7(i, j, css_id) {
-          var table = document.getElementById("tinytable_2lst47hlkw9fh7x1h7h7");
+      function styleCell_c2a43ko2h9d1ner1ico2(i, j, css_id) {
+          var table = document.getElementById("tinytable_c2a43ko2h9d1ner1ico2");
           var cell = table.querySelector(`[data-row="${i}"][data-col="${j}"]`);
           if (cell) {
               console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
@@ -3206,8 +3206,8 @@ Table 1: Ancestral state reconstruction for inferred archetypes (see <a href="#
               console.warn(`Cell at (${i}, ${j}) not found.`);
           }
       }
-      function spanCell_2lst47hlkw9fh7x1h7h7(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_2lst47hlkw9fh7x1h7h7");
+      function spanCell_c2a43ko2h9d1ner1ico2(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_c2a43ko2h9d1ner1ico2");
         const targetCell = table.querySelector(`[data-row="${i}"][data-col="${j}"]`);
         if (!targetCell) {
           console.warn(`Cell at (${i}, ${j}) not found.`);
@@ -3238,14 +3238,14 @@ Table 1: Ancestral state reconstruction for inferred archetypes (see <a href="#
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '7', j: 0 }, { i: '7', j: 1 }, { i: '7', j: 2 }, { i: '7', j: 3 }, { i: '7', j: 4 }, { i: '7', j: 5 }, { i: '7', j: 6 }, { i: '7', j: 13 }, { i: '7', j: 7 }, { i: '7', j: 14 }, { i: '7', j: 8 }, { i: '7', j: 15 }, { i: '7', j: 9 }, { i: '7', j: 16 }, { i: '7', j: 10 }, { i: '7', j: 17 }, { i: '7', j: 11 }, { i: '7', j: 18 }, { i: '7', j: 12 }, { i: '7', j: 19 }, { i: '7', j: 26 }, { i: '7', j: 20 }, { i: '7', j: 27 }, { i: '7', j: 21 }, { i: '7', j: 28 }, { i: '7', j: 22 }, { i: '7', j: 29 }, { i: '7', j: 23 }, { i: '7', j: 30 }, { i: '7', j: 24 }, { i: '7', j: 31 }, { i: '7', j: 25 }, { i: '7', j: 32 }, { i: '7', j: 39 }, { i: '7', j: 33 }, { i: '7', j: 40 }, { i: '7', j: 34 }, { i: '7', j: 41 }, { i: '7', j: 35 }, { i: '7', j: 42 }, { i: '7', j: 36 }, { i: '7', j: 43 }, { i: '7', j: 37 }, { i: '7', j: 44 }, { i: '7', j: 38 }, { i: '7', j: 45 }, { i: '7', j: 52 }, { i: '7', j: 46 }, { i: '7', j: 53 }, { i: '7', j: 47 }, { i: '7', j: 54 }, { i: '7', j: 48 }, { i: '7', j: 55 }, { i: '7', j: 49 }, { i: '7', j: 56 }, { i: '7', j: 50 }, { i: '7', j: 57 }, { i: '7', j: 51 }, { i: '7', j: 58 }, { i: '7', j: 65 }, { i: '7', j: 59 }, { i: '7', j: 66 }, { i: '7', j: 60 }, { i: '7', j: 67 }, { i: '7', j: 61 }, { i: '7', j: 68 }, { i: '7', j: 62 }, { i: '7', j: 69 }, { i: '7', j: 63 }, { i: '7', j: 70 }, { i: '7', j: 64 }, { i: '7', j: 71 },  ], css_id: 'tinytable_css_472qh95xpyhpp1vgt0sr',}, 
-          { positions: [ { i: '0', j: 0 }, { i: '0', j: 7 }, { i: '0', j: 1 }, { i: '0', j: 8 }, { i: '0', j: 2 }, { i: '0', j: 9 }, { i: '0', j: 3 }, { i: '0', j: 10 }, { i: '0', j: 4 }, { i: '0', j: 11 }, { i: '0', j: 5 }, { i: '0', j: 12 }, { i: '0', j: 6 }, { i: '0', j: 13 }, { i: '0', j: 20 }, { i: '0', j: 14 }, { i: '0', j: 21 }, { i: '0', j: 15 }, { i: '0', j: 22 }, { i: '0', j: 16 }, { i: '0', j: 23 }, { i: '0', j: 17 }, { i: '0', j: 24 }, { i: '0', j: 18 }, { i: '0', j: 25 }, { i: '0', j: 19 }, { i: '0', j: 26 }, { i: '0', j: 33 }, { i: '0', j: 27 }, { i: '0', j: 34 }, { i: '0', j: 28 }, { i: '0', j: 35 }, { i: '0', j: 29 }, { i: '0', j: 36 }, { i: '0', j: 30 }, { i: '0', j: 37 }, { i: '0', j: 31 }, { i: '0', j: 38 }, { i: '0', j: 32 }, { i: '0', j: 39 }, { i: '0', j: 46 }, { i: '0', j: 40 }, { i: '0', j: 47 }, { i: '0', j: 41 }, { i: '0', j: 48 }, { i: '0', j: 42 }, { i: '0', j: 49 }, { i: '0', j: 43 }, { i: '0', j: 50 }, { i: '0', j: 44 }, { i: '0', j: 51 }, { i: '0', j: 45 }, { i: '0', j: 52 }, { i: '0', j: 59 }, { i: '0', j: 53 }, { i: '0', j: 60 }, { i: '0', j: 54 }, { i: '0', j: 61 }, { i: '0', j: 55 }, { i: '0', j: 62 }, { i: '0', j: 56 }, { i: '0', j: 63 }, { i: '0', j: 57 }, { i: '0', j: 64 }, { i: '0', j: 58 }, { i: '0', j: 65 }, { i: '0', j: 66 }, { i: '0', j: 67 }, { i: '0', j: 68 }, { i: '0', j: 69 }, { i: '0', j: 70 }, { i: '0', j: 71 },  ], css_id: 'tinytable_css_8ttn1gphf2zk1a7lw3ew',}, 
+          { positions: [ { i: '7', j: 0 }, { i: '7', j: 1 }, { i: '7', j: 2 }, { i: '7', j: 3 }, { i: '7', j: 4 }, { i: '7', j: 5 }, { i: '7', j: 6 }, { i: '7', j: 13 }, { i: '7', j: 7 }, { i: '7', j: 14 }, { i: '7', j: 8 }, { i: '7', j: 15 }, { i: '7', j: 9 }, { i: '7', j: 16 }, { i: '7', j: 10 }, { i: '7', j: 17 }, { i: '7', j: 11 }, { i: '7', j: 18 }, { i: '7', j: 12 }, { i: '7', j: 19 }, { i: '7', j: 26 }, { i: '7', j: 20 }, { i: '7', j: 27 }, { i: '7', j: 21 }, { i: '7', j: 28 }, { i: '7', j: 22 }, { i: '7', j: 29 }, { i: '7', j: 23 }, { i: '7', j: 30 }, { i: '7', j: 24 }, { i: '7', j: 31 }, { i: '7', j: 25 }, { i: '7', j: 32 }, { i: '7', j: 39 }, { i: '7', j: 33 }, { i: '7', j: 40 }, { i: '7', j: 34 }, { i: '7', j: 41 }, { i: '7', j: 35 }, { i: '7', j: 42 }, { i: '7', j: 36 }, { i: '7', j: 43 }, { i: '7', j: 37 }, { i: '7', j: 44 }, { i: '7', j: 38 }, { i: '7', j: 45 }, { i: '7', j: 52 }, { i: '7', j: 46 }, { i: '7', j: 53 }, { i: '7', j: 47 }, { i: '7', j: 54 }, { i: '7', j: 48 }, { i: '7', j: 55 }, { i: '7', j: 49 }, { i: '7', j: 56 }, { i: '7', j: 50 }, { i: '7', j: 57 }, { i: '7', j: 51 }, { i: '7', j: 58 }, { i: '7', j: 65 }, { i: '7', j: 59 }, { i: '7', j: 66 }, { i: '7', j: 60 }, { i: '7', j: 67 }, { i: '7', j: 61 }, { i: '7', j: 68 }, { i: '7', j: 62 }, { i: '7', j: 69 }, { i: '7', j: 63 }, { i: '7', j: 70 }, { i: '7', j: 64 }, { i: '7', j: 71 },  ], css_id: 'tinytable_css_kh8wiegx9qv45jxkcky0',}, 
+          { positions: [ { i: '0', j: 0 }, { i: '0', j: 7 }, { i: '0', j: 1 }, { i: '0', j: 8 }, { i: '0', j: 2 }, { i: '0', j: 9 }, { i: '0', j: 3 }, { i: '0', j: 10 }, { i: '0', j: 4 }, { i: '0', j: 11 }, { i: '0', j: 5 }, { i: '0', j: 12 }, { i: '0', j: 6 }, { i: '0', j: 13 }, { i: '0', j: 20 }, { i: '0', j: 14 }, { i: '0', j: 21 }, { i: '0', j: 15 }, { i: '0', j: 22 }, { i: '0', j: 16 }, { i: '0', j: 23 }, { i: '0', j: 17 }, { i: '0', j: 24 }, { i: '0', j: 18 }, { i: '0', j: 25 }, { i: '0', j: 19 }, { i: '0', j: 26 }, { i: '0', j: 33 }, { i: '0', j: 27 }, { i: '0', j: 34 }, { i: '0', j: 28 }, { i: '0', j: 35 }, { i: '0', j: 29 }, { i: '0', j: 36 }, { i: '0', j: 30 }, { i: '0', j: 37 }, { i: '0', j: 31 }, { i: '0', j: 38 }, { i: '0', j: 32 }, { i: '0', j: 39 }, { i: '0', j: 46 }, { i: '0', j: 40 }, { i: '0', j: 47 }, { i: '0', j: 41 }, { i: '0', j: 48 }, { i: '0', j: 42 }, { i: '0', j: 49 }, { i: '0', j: 43 }, { i: '0', j: 50 }, { i: '0', j: 44 }, { i: '0', j: 51 }, { i: '0', j: 45 }, { i: '0', j: 52 }, { i: '0', j: 59 }, { i: '0', j: 53 }, { i: '0', j: 60 }, { i: '0', j: 54 }, { i: '0', j: 61 }, { i: '0', j: 55 }, { i: '0', j: 62 }, { i: '0', j: 56 }, { i: '0', j: 63 }, { i: '0', j: 57 }, { i: '0', j: 64 }, { i: '0', j: 58 }, { i: '0', j: 65 }, { i: '0', j: 66 }, { i: '0', j: 67 }, { i: '0', j: 68 }, { i: '0', j: 69 }, { i: '0', j: 70 }, { i: '0', j: 71 },  ], css_id: 'tinytable_css_6klsqlurmzh08ll3kosy',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  styleCell_2lst47hlkw9fh7x1h7h7(cell.i, cell.j, group.css_id);
+                  styleCell_c2a43ko2h9d1ner1ico2(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -3253,11 +3253,11 @@ Table 1: Ancestral state reconstruction for inferred archetypes (see <a href="#
 
     <style>
 
-.table td.tinytable_css_472qh95xpyhpp1vgt0sr, .table th.tinytable_css_472qh95xpyhpp1vgt0sr { border-bottom: solid #d3d8dc 0.1em; }
-.table td.tinytable_css_8ttn1gphf2zk1a7lw3ew, .table th.tinytable_css_8ttn1gphf2zk1a7lw3ew { border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
+.table td.tinytable_css_kh8wiegx9qv45jxkcky0, .table th.tinytable_css_kh8wiegx9qv45jxkcky0 { border-bottom: solid #d3d8dc 0.1em; }
+.table td.tinytable_css_6klsqlurmzh08ll3kosy, .table th.tinytable_css_6klsqlurmzh08ll3kosy { border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
 </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_2lst47hlkw9fh7x1h7h7" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="table table-borderless" id="tinytable_c2a43ko2h9d1ner1ico2" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         <thead>
         
               <tr>
@@ -3355,7 +3355,7 @@ Table 1: Ancestral state reconstruction for inferred archetypes (see <a href="#
                   <td data-row="1" data-col="14">―</td>
                   <td data-row="1" data-col="15">―</td>
                   <td data-row="1" data-col="16">―</td>
-                  <td data-row="1" data-col="17">12 w/ filler</td>
+                  <td data-row="1" data-col="17">7 w/ filler</td>
                   <td data-row="1" data-col="18">la</td>
                   <td data-row="1" data-col="19">No</td>
                   <td data-row="1" data-col="20">Yes</td>
@@ -3372,9 +3372,9 @@ Table 1: Ancestral state reconstruction for inferred archetypes (see <a href="#
                   <td data-row="1" data-col="31">4?</td>
                   <td data-row="1" data-col="32">Yes</td>
                   <td data-row="1" data-col="33">la</td>
-                  <td data-row="1" data-col="34">NA</td>
+                  <td data-row="1" data-col="34">―</td>
                   <td data-row="1" data-col="35">―</td>
-                  <td data-row="1" data-col="36">―</td>
+                  <td data-row="1" data-col="36">la</td>
                   <td data-row="1" data-col="37">―</td>
                   <td data-row="1" data-col="38">la</td>
                   <td data-row="1" data-col="39">10</td>
@@ -3386,7 +3386,7 @@ Table 1: Ancestral state reconstruction for inferred archetypes (see <a href="#
                   <td data-row="1" data-col="45">SIH</td>
                   <td data-row="1" data-col="46">―</td>
                   <td data-row="1" data-col="47">a-xi-la</td>
-                  <td data-row="1" data-col="48">la</td>
+                  <td data-row="1" data-col="48">―</td>
                   <td data-row="1" data-col="49">11 w/ fillers</td>
                   <td data-row="1" data-col="50">11 w/ fillers</td>
                   <td data-row="1" data-col="51">―</td>
@@ -3401,22 +3401,22 @@ Table 1: Ancestral state reconstruction for inferred archetypes (see <a href="#
                   <td data-row="1" data-col="60">11 w/ fillers</td>
                   <td data-row="1" data-col="61">―</td>
                   <td data-row="1" data-col="62">la</td>
-                  <td data-row="1" data-col="63">la</td>
+                  <td data-row="1" data-col="63">―</td>
                   <td data-row="1" data-col="64">―</td>
                   <td data-row="1" data-col="65">No</td>
                   <td data-row="1" data-col="66">11</td>
                   <td data-row="1" data-col="67">―</td>
-                  <td data-row="1" data-col="68">―</td>
+                  <td data-row="1" data-col="68">No</td>
                   <td data-row="1" data-col="69">―</td>
-                  <td data-row="1" data-col="70">―</td>
-                  <td data-row="1" data-col="71">No</td>
+                  <td data-row="1" data-col="70">ka-KAN-la</td>
+                  <td data-row="1" data-col="71">―</td>
                 </tr>
                 <tr>
                   <td data-row="2" data-col="0">*A2</td>
                   <td data-row="2" data-col="1">7 w/ filler</td>
                   <td data-row="2" data-col="2">bu</td>
-                  <td data-row="2" data-col="3">―</td>
-                  <td data-row="2" data-col="4">2</td>
+                  <td data-row="2" data-col="3">NA</td>
+                  <td data-row="2" data-col="4">3</td>
                   <td data-row="2" data-col="5">―</td>
                   <td data-row="2" data-col="6">10</td>
                   <td data-row="2" data-col="7">L</td>
@@ -3437,7 +3437,7 @@ Table 1: Ancestral state reconstruction for inferred archetypes (see <a href="#
                   <td data-row="2" data-col="22">1</td>
                   <td data-row="2" data-col="23">Yes</td>
                   <td data-row="2" data-col="24">vert</td>
-                  <td data-row="2" data-col="25">la</td>
+                  <td data-row="2" data-col="25">―</td>
                   <td data-row="2" data-col="26">L</td>
                   <td data-row="2" data-col="27">chak</td>
                   <td data-row="2" data-col="28">―</td>
@@ -3446,12 +3446,12 @@ Table 1: Ancestral state reconstruction for inferred archetypes (see <a href="#
                   <td data-row="2" data-col="31">4?</td>
                   <td data-row="2" data-col="32">Yes</td>
                   <td data-row="2" data-col="33">la</td>
-                  <td data-row="2" data-col="34">NA</td>
+                  <td data-row="2" data-col="34">―</td>
                   <td data-row="2" data-col="35">―</td>
                   <td data-row="2" data-col="36">―</td>
                   <td data-row="2" data-col="37">―</td>
                   <td data-row="2" data-col="38">la</td>
-                  <td data-row="2" data-col="39">10</td>
+                  <td data-row="2" data-col="39">11 w/ fillers</td>
                   <td data-row="2" data-col="40">―</td>
                   <td data-row="2" data-col="41">―</td>
                   <td data-row="2" data-col="42">―</td>
@@ -3489,14 +3489,14 @@ Table 1: Ancestral state reconstruction for inferred archetypes (see <a href="#
                   <td data-row="3" data-col="0">*A3</td>
                   <td data-row="3" data-col="1">7 w/ filler</td>
                   <td data-row="3" data-col="2">bu</td>
-                  <td data-row="3" data-col="3">―</td>
-                  <td data-row="3" data-col="4">2</td>
+                  <td data-row="3" data-col="3">NA</td>
+                  <td data-row="3" data-col="4">3</td>
                   <td data-row="3" data-col="5">―</td>
                   <td data-row="3" data-col="6">10</td>
                   <td data-row="3" data-col="7">L</td>
                   <td data-row="3" data-col="8">10</td>
                   <td data-row="3" data-col="9">L</td>
-                  <td data-row="3" data-col="10">NA</td>
+                  <td data-row="3" data-col="10">la</td>
                   <td data-row="3" data-col="11">No</td>
                   <td data-row="3" data-col="12">horiz</td>
                   <td data-row="3" data-col="13">No</td>
@@ -3504,14 +3504,14 @@ Table 1: Ancestral state reconstruction for inferred archetypes (see <a href="#
                   <td data-row="3" data-col="15">―</td>
                   <td data-row="3" data-col="16">―</td>
                   <td data-row="3" data-col="17">12 w/ filler</td>
-                  <td data-row="3" data-col="18">―</td>
+                  <td data-row="3" data-col="18">la</td>
                   <td data-row="3" data-col="19">No</td>
                   <td data-row="3" data-col="20">Yes</td>
                   <td data-row="3" data-col="21">No / error 4</td>
                   <td data-row="3" data-col="22">1</td>
                   <td data-row="3" data-col="23">Yes</td>
                   <td data-row="3" data-col="24">vert</td>
-                  <td data-row="3" data-col="25">la</td>
+                  <td data-row="3" data-col="25">―</td>
                   <td data-row="3" data-col="26">L</td>
                   <td data-row="3" data-col="27">chak</td>
                   <td data-row="3" data-col="28">―</td>
@@ -3520,7 +3520,7 @@ Table 1: Ancestral state reconstruction for inferred archetypes (see <a href="#
                   <td data-row="3" data-col="31">NA</td>
                   <td data-row="3" data-col="32">Yes</td>
                   <td data-row="3" data-col="33">NA</td>
-                  <td data-row="3" data-col="34">NA</td>
+                  <td data-row="3" data-col="34">―</td>
                   <td data-row="3" data-col="35">NA</td>
                   <td data-row="3" data-col="36">―</td>
                   <td data-row="3" data-col="37">―</td>
@@ -3544,7 +3544,7 @@ Table 1: Ancestral state reconstruction for inferred archetypes (see <a href="#
                   <td data-row="3" data-col="55">―</td>
                   <td data-row="3" data-col="56">―</td>
                   <td data-row="3" data-col="57">NA</td>
-                  <td data-row="3" data-col="58">NA</td>
+                  <td data-row="3" data-col="58">―</td>
                   <td data-row="3" data-col="59">―</td>
                   <td data-row="3" data-col="60">11 w/ fillers</td>
                   <td data-row="3" data-col="61">―</td>
@@ -3563,14 +3563,14 @@ Table 1: Ancestral state reconstruction for inferred archetypes (see <a href="#
                   <td data-row="4" data-col="0">*A4</td>
                   <td data-row="4" data-col="1">7 w/ filler</td>
                   <td data-row="4" data-col="2">bu</td>
-                  <td data-row="4" data-col="3">―</td>
-                  <td data-row="4" data-col="4">2</td>
+                  <td data-row="4" data-col="3">la</td>
+                  <td data-row="4" data-col="4">3</td>
                   <td data-row="4" data-col="5">―</td>
                   <td data-row="4" data-col="6">10</td>
                   <td data-row="4" data-col="7">L</td>
                   <td data-row="4" data-col="8">10</td>
                   <td data-row="4" data-col="9">L</td>
-                  <td data-row="4" data-col="10">NA</td>
+                  <td data-row="4" data-col="10">la</td>
                   <td data-row="4" data-col="11">No</td>
                   <td data-row="4" data-col="12">horiz</td>
                   <td data-row="4" data-col="13">No</td>
@@ -3585,7 +3585,7 @@ Table 1: Ancestral state reconstruction for inferred archetypes (see <a href="#
                   <td data-row="4" data-col="22">1</td>
                   <td data-row="4" data-col="23">Yes</td>
                   <td data-row="4" data-col="24">vert</td>
-                  <td data-row="4" data-col="25">la</td>
+                  <td data-row="4" data-col="25">―</td>
                   <td data-row="4" data-col="26">L</td>
                   <td data-row="4" data-col="27">chak</td>
                   <td data-row="4" data-col="28">―</td>
@@ -3637,8 +3637,8 @@ Table 1: Ancestral state reconstruction for inferred archetypes (see <a href="#
                   <td data-row="5" data-col="0">*A5</td>
                   <td data-row="5" data-col="1">12 w/ filler</td>
                   <td data-row="5" data-col="2">wa</td>
-                  <td data-row="5" data-col="3">wa</td>
-                  <td data-row="5" data-col="4">2</td>
+                  <td data-row="5" data-col="3">ya</td>
+                  <td data-row="5" data-col="4">3</td>
                   <td data-row="5" data-col="5">―</td>
                   <td data-row="5" data-col="6">12 w/ filler</td>
                   <td data-row="5" data-col="7">L</td>
@@ -3659,7 +3659,7 @@ Table 1: Ancestral state reconstruction for inferred archetypes (see <a href="#
                   <td data-row="5" data-col="22">1 w/ fillers</td>
                   <td data-row="5" data-col="23">Yes</td>
                   <td data-row="5" data-col="24">vert</td>
-                  <td data-row="5" data-col="25">wa</td>
+                  <td data-row="5" data-col="25">la</td>
                   <td data-row="5" data-col="26">L</td>
                   <td data-row="5" data-col="27">chak</td>
                   <td data-row="5" data-col="28">―</td>
@@ -3668,20 +3668,20 @@ Table 1: Ancestral state reconstruction for inferred archetypes (see <a href="#
                   <td data-row="5" data-col="31">4</td>
                   <td data-row="5" data-col="32">Yes</td>
                   <td data-row="5" data-col="33">la</td>
-                  <td data-row="5" data-col="34">NA</td>
+                  <td data-row="5" data-col="34">―</td>
                   <td data-row="5" data-col="35">―</td>
                   <td data-row="5" data-col="36">―</td>
                   <td data-row="5" data-col="37">―</td>
                   <td data-row="5" data-col="38">la</td>
-                  <td data-row="5" data-col="39">10</td>
-                  <td data-row="5" data-col="40">NA</td>
+                  <td data-row="5" data-col="39">11 w/ fillers</td>
+                  <td data-row="5" data-col="40">―</td>
                   <td data-row="5" data-col="41">―</td>
                   <td data-row="5" data-col="42">―</td>
-                  <td data-row="5" data-col="43">NA</td>
+                  <td data-row="5" data-col="43"># &gt; 10</td>
                   <td data-row="5" data-col="44">12 w/ filler</td>
                   <td data-row="5" data-col="45">SIH</td>
                   <td data-row="5" data-col="46">―</td>
-                  <td data-row="5" data-col="47">#-xi-#</td>
+                  <td data-row="5" data-col="47">NA</td>
                   <td data-row="5" data-col="48">―</td>
                   <td data-row="5" data-col="49">12 w/ filler</td>
                   <td data-row="5" data-col="50">11 w/ fillers</td>
@@ -3694,7 +3694,7 @@ Table 1: Ancestral state reconstruction for inferred archetypes (see <a href="#
                   <td data-row="5" data-col="57">wa</td>
                   <td data-row="5" data-col="58">AK&#39;AB-OL-BALAM</td>
                   <td data-row="5" data-col="59">―</td>
-                  <td data-row="5" data-col="60">12 w/ filler</td>
+                  <td data-row="5" data-col="60">12</td>
                   <td data-row="5" data-col="61">―</td>
                   <td data-row="5" data-col="62">la</td>
                   <td data-row="5" data-col="63">―</td>
@@ -3711,8 +3711,8 @@ Table 1: Ancestral state reconstruction for inferred archetypes (see <a href="#
                   <td data-row="6" data-col="0">*A6</td>
                   <td data-row="6" data-col="1">12 w/ filler</td>
                   <td data-row="6" data-col="2">wa</td>
-                  <td data-row="6" data-col="3">wa</td>
-                  <td data-row="6" data-col="4">2</td>
+                  <td data-row="6" data-col="3">ya</td>
+                  <td data-row="6" data-col="4">NA</td>
                   <td data-row="6" data-col="5">―</td>
                   <td data-row="6" data-col="6">12 w/ filler</td>
                   <td data-row="6" data-col="7">L</td>
@@ -3733,7 +3733,7 @@ Table 1: Ancestral state reconstruction for inferred archetypes (see <a href="#
                   <td data-row="6" data-col="22">1 w/ fillers</td>
                   <td data-row="6" data-col="23">Yes</td>
                   <td data-row="6" data-col="24">horiz</td>
-                  <td data-row="6" data-col="25">wa</td>
+                  <td data-row="6" data-col="25">la</td>
                   <td data-row="6" data-col="26">L</td>
                   <td data-row="6" data-col="27">chak</td>
                   <td data-row="6" data-col="28">―</td>
@@ -3742,19 +3742,19 @@ Table 1: Ancestral state reconstruction for inferred archetypes (see <a href="#
                   <td data-row="6" data-col="31">4</td>
                   <td data-row="6" data-col="32">Yes</td>
                   <td data-row="6" data-col="33">la</td>
-                  <td data-row="6" data-col="34">la</td>
+                  <td data-row="6" data-col="34">wa</td>
                   <td data-row="6" data-col="35">la</td>
                   <td data-row="6" data-col="36">―</td>
                   <td data-row="6" data-col="37">―</td>
                   <td data-row="6" data-col="38">ya</td>
-                  <td data-row="6" data-col="39">10</td>
+                  <td data-row="6" data-col="39">11 w/ fillers</td>
                   <td data-row="6" data-col="40">wa</td>
                   <td data-row="6" data-col="41">―</td>
                   <td data-row="6" data-col="42">―</td>
                   <td data-row="6" data-col="43"># &gt; 10</td>
                   <td data-row="6" data-col="44">12 w/ filler</td>
                   <td data-row="6" data-col="45">SIH</td>
-                  <td data-row="6" data-col="46">wa</td>
+                  <td data-row="6" data-col="46">―</td>
                   <td data-row="6" data-col="47">#-xi-#</td>
                   <td data-row="6" data-col="48">―</td>
                   <td data-row="6" data-col="49">12 w/ filler</td>
@@ -3768,9 +3768,9 @@ Table 1: Ancestral state reconstruction for inferred archetypes (see <a href="#
                   <td data-row="6" data-col="57">wa</td>
                   <td data-row="6" data-col="58">AK&#39;AB-OL-BALAM</td>
                   <td data-row="6" data-col="59">―</td>
-                  <td data-row="6" data-col="60">12 w/ filler</td>
+                  <td data-row="6" data-col="60">12</td>
                   <td data-row="6" data-col="61">―</td>
-                  <td data-row="6" data-col="62">NA</td>
+                  <td data-row="6" data-col="62">la</td>
                   <td data-row="6" data-col="63">―</td>
                   <td data-row="6" data-col="64">―</td>
                   <td data-row="6" data-col="65">No</td>
@@ -3785,7 +3785,7 @@ Table 1: Ancestral state reconstruction for inferred archetypes (see <a href="#
                   <td data-row="7" data-col="0">*A7</td>
                   <td data-row="7" data-col="1">7 w/ filler</td>
                   <td data-row="7" data-col="2">bu</td>
-                  <td data-row="7" data-col="3">la</td>
+                  <td data-row="7" data-col="3">wa</td>
                   <td data-row="7" data-col="4">10 equal</td>
                   <td data-row="7" data-col="5">―</td>
                   <td data-row="7" data-col="6">10</td>
@@ -3807,7 +3807,7 @@ Table 1: Ancestral state reconstruction for inferred archetypes (see <a href="#
                   <td data-row="7" data-col="22">1</td>
                   <td data-row="7" data-col="23">Yes</td>
                   <td data-row="7" data-col="24">vert</td>
-                  <td data-row="7" data-col="25">la</td>
+                  <td data-row="7" data-col="25">―</td>
                   <td data-row="7" data-col="26">L</td>
                   <td data-row="7" data-col="27">chak</td>
                   <td data-row="7" data-col="28">la</td>
@@ -3816,12 +3816,12 @@ Table 1: Ancestral state reconstruction for inferred archetypes (see <a href="#
                   <td data-row="7" data-col="31">4?</td>
                   <td data-row="7" data-col="32">Yes</td>
                   <td data-row="7" data-col="33">la</td>
-                  <td data-row="7" data-col="34">NA</td>
+                  <td data-row="7" data-col="34">la</td>
                   <td data-row="7" data-col="35">―</td>
                   <td data-row="7" data-col="36">―</td>
                   <td data-row="7" data-col="37">―</td>
                   <td data-row="7" data-col="38">la</td>
-                  <td data-row="7" data-col="39">10</td>
+                  <td data-row="7" data-col="39">11 w/ fillers</td>
                   <td data-row="7" data-col="40">la</td>
                   <td data-row="7" data-col="41">la</td>
                   <td data-row="7" data-col="42">―</td>
@@ -3842,10 +3842,10 @@ Table 1: Ancestral state reconstruction for inferred archetypes (see <a href="#
                   <td data-row="7" data-col="57">la</td>
                   <td data-row="7" data-col="58">AK&#39;AB-OL-BALAM-ma</td>
                   <td data-row="7" data-col="59">―</td>
-                  <td data-row="7" data-col="60">12</td>
+                  <td data-row="7" data-col="60">11 w/ fillers</td>
                   <td data-row="7" data-col="61">5#</td>
                   <td data-row="7" data-col="62">la</td>
-                  <td data-row="7" data-col="63">wa</td>
+                  <td data-row="7" data-col="63">la</td>
                   <td data-row="7" data-col="64">―</td>
                   <td data-row="7" data-col="65">―</td>
                   <td data-row="7" data-col="66">―</td>
