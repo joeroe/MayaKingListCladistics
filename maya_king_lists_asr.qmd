@@ -1,0 +1,17 @@
+```{r phylo-archetype}
+plotAnc(
+        king_lists_archetypes, 
+        trait, 
+        main = colnames(king_lists)[trait],
+        col = colour("muted")(8),
+        use.edge.length = TRUE, 
+        show.node.label = TRUE
+)
+```
+
+**Legend**
+
+```{r phylo-archetype-key, results='asis'}
+key <- levels(king_lists[,trait])
+cat(paste0(1:length(key), ". ", key, collapse = "\n"))
+```

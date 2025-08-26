@@ -5,29 +5,43 @@ author:
     email: "jar@hum.ku.dk"
     affiliation: "University of Copenhagen"
 date: last-modified
-format: html
+language: 
+  title-block-published: "Date"
+bibliography: references.bib
+format: 
+  html:
+    toc: true
+    embed-resources: true
 execute:
   echo: false
-  message: false
 ---
 
+```{r setup}
+options(knitr.duplicate.label = "allow")
+```
+
 ```{r dependencies}
-library(ape, warn.conflicts = FALSE)
-library(cultevo, warn.conflicts = FALSE)
-library(dplyr, warn.conflicts = FALSE)
-library(forcats)
-library(here)
-library(khroma)
-library(readxl)
-library(phangorn, warn.conflicts = FALSE)
-library(purrr)
-library(tibble)
-library(tidyr)
-library(tinytable)
+suppressPackageStartupMessages({
+  library(ape, warn.conflicts = FALSE)
+  library(cultevo, warn.conflicts = FALSE)
+  library(dplyr, warn.conflicts = FALSE)
+  library(forcats)
+  library(ggplot2)
+  library(ggtree, warn.conflicts = FALSE) # https://bioconductor.org/packages/release/bioc/html/ggtree.html
+  library(here)
+  library(khroma)
+  library(readxl)
+  library(phangorn, warn.conflicts = FALSE)
+  library(purrr)
+  library(tibble)
+  library(tidyr, warn.conflicts = FALSE)
+  library(tinytable, warn.conflicts = FALSE)
+  library(treeio)
+})
 ```
 
 
-```{r data-king-lists}
+```{r data-king-lists, message=FALSE}
 king_lists <- read_xlsx(here("data", "king-lists.xlsx"), col_types = "text") |>
   select(-c(archetype, ...16)) |>
   pivot_longer(!c(Ruler, variants), names_to = "specimen") |>
@@ -41,7 +55,7 @@ king_lists <- read_xlsx(here("data", "king-lists.xlsx"), col_types = "text") |>
 ```
 
 This document describes a cladistic analysis of `r length(king_lists)` Maya king lists.
-The analysis was performed in `r R.version$version.string` (R Core Team 2025).
+The analysis was performed in `r R.version$version.string` [@R2025] and visualised presented with ggtree [@YuEtAl2017; @Yu2020; @Yu2022].
 
 There are several methods we can use to generate a dendrogram of this data:
 the simplest, hierarchical clustering, only considers the relative 'dissimilarity' between specimens;
@@ -56,18 +70,21 @@ Hierarchical clustering, based only on the dissimilarity between specimens.
 king_lists <- column_to_rownames(king_lists, "specimen")
 king_lists_dist <- hammingdists(king_lists)
 king_lists_hclust <- hclust(king_lists_dist)
+king_lists_hclust$labels <- rownames(king_lists)
 ```
 
 ```{r fig-hclust}
 #| fig-cap: Dendrogram from hierarchical clustering
-plot(king_lists_hclust, labels = rownames(king_lists))
+ggtree(king_lists_hclust, layout = "roundrect") +
+  geom_tiplab() +
+  hexpand(0.01)
 ```
 
 ## Unrooted phylogenetic tree
 
 If we incorporate the assumption that dissimilarities between specimens arose through a process of copying with error (either from each other or from the original), we can generate a more informative tree using phylogenetic methods.
-We use the 'branch and bound' algorithm (Hendy and Penny 1982) to find the most parsimonious trees, i.e. those that require the least number of copying errors.
-Phylogenetic analyses were conducted using the R packages ape (Paradis & Schliep 2019) and phangorn (Schliep 2011).
+We use the 'branch and bound' algorithm [@HendyPenny1982] to find the most parsimonious trees, i.e. those that require the least number of copying errors.
+Phylogenetic analyses were conducted using the R packages ape [@ParadisSchliep2019] and phangorn [@Schliep2011].
 
 ```{r phylo}
 king_lists_phydata <- phyDat(
@@ -82,14 +99,18 @@ This results in `r length(king_lists_phylo)` most parsimonious trees.
 From these we derive the consensus tree, which only includes clades that are found in all most parsiminous trees.
 
 ```{r fig-phylo}
-#| fig-cap: Consensus phylogenetic tree
-plot(consensus(king_lists_phylo), use.edge.length = TRUE)
+#| fig-cap: Unrooted consensus phylogenetic tree
+king_lists_phylo |>
+  consensus() |>
+  ggtree(layout = "roundrect") +
+  geom_tiplab() +
+  hexpand(0.01)
 ```
 
 The consistency index and retention index are two methods of quantifying how well the observed data fits a phylogenetic model.
 Both are on a scale of 0 to 1, with 1 being the most 'tree-like'.
 For the consensus tree, the consistency index is `r round(CI(consensus(king_lists_phylo), king_lists_phydata), 2)` and the retention index is `r round(RI(consensus(king_lists_phylo), king_lists_phydata), 2)`.
-This is within the typical range for cultural phylogenies (Collard et al. 2006).
+This is within the typical range for cultural phylogenies [@CollardEtAl2006].
 
 ## Rooted phylogenetic tree
 
@@ -104,17 +125,19 @@ king_lists_phylo_rooted <- root(
 )
 
 king_lists_phylo_con <- consensus(king_lists_phylo_rooted, rooted = TRUE)
-king_lists_phylo_con <- makeNodeLabel(king_lists_phylo_con, prefix = "*Archetype")
+king_lists_phylo_con <- makeNodeLabel(king_lists_phylo_con, prefix = "*A")
 ```
 
 ```{r fig-phylo-rooted}
 #| fig-cap: Rooted consensus phylogenetic tree
-plot(king_lists_phylo_con, use.edge.length = TRUE, show.node.label = TRUE)
+king_lists_phylo_con |>
+  ggtree(layout = "roundrect") +
+  geom_tiplab() +
+  geom_nodelab(geom = "label") +
+  hexpand(0.01)
 ```
 
-<!-- TODO: age-constrained (Bayesian?) trees -->
-
-## Ancestral trait reconstruction
+## Ancestral state reconstruction
 
 Using the rooted consensus tree, we can reconstruct the characteristics of the hypothetical archetypes at the base of each clade, including the basal clade – the putative original.
 We use the maximum parsimony (MPR) algorithm.
@@ -124,7 +147,7 @@ king_lists_archetypes <- anc_pars(king_lists_phylo_con, king_lists_phydata)
 ```
 
 ```{r tbl-phylo-archetypes}
-#| tbl-cap: Ancestral trait reconstructions for inferred archetypes (see @fig-phylo-rooted).
+#| tbl-cap: Ancestral state reconstruction for inferred archetypes (see @fig-phylo-rooted).
 king_lists_archetypes$state |>
   as.data.frame() |>
   rownames_to_column("trait") |>
@@ -141,25 +164,22 @@ king_lists_archetypes$state |>
   tt()
 ```
 
-We can also use this to visualise the evolution of a specific trait on the tree (e.g. @fig-phylo-archetype1).
+We can also use this to visualise the evolution of a specific trait on the tree – see below.
 
-```{r fig-phylo-archetype1}
-#| fig-cap: Example ancestral trait tree
-plotAnc(
-        king_lists_archetypes, 
-        1, 
-        main = colnames(king_lists)[1],
-        col = colour("muted")(8),
-        use.edge.length = TRUE, 
-        show.node.label = TRUE
+## Ancestral trait trees {.appendix}
+
+```{r content, message=FALSE, results="asis"}
+content <- map(
+  1:ncol(king_lists),
+  function(trait, king_lists_archetypes, king_lists, ...) {
+    knitr::knit_child(
+      here("maya_king_lists_asr.qmd"),
+      envir = environment(),
+      quiet = TRUE
+    )},
+  king_lists_archetypes = king_lists_archetypes,
+  king_lists = king_lists
 )
+
+cat(unlist(content), sep = "\n\n---\n\n")
 ```
-
-## References
-
-* Collard, M., Shennan, S. J., & Tehrani, J. J. 2006. Branching, blending, and the evolution of cultural similarities and differences among human populations. *Evolution and Human Behavior* 27(3): 169–184.
-* Handy and Penny
-* Paradis, E., Schliep, K. 2019. ape 5.0: an environment for modern phylogenetics and evolutionary analyses in R. _Bioinformatics_ 35: 526-528. <https://doi.org/10.1093/bioinformatics/bty633>.
-* R Core Team (2025). _R: A Language and Environment for Statistical Computing_. R Foundation for Statistical Computing, Vienna, Austria. <https://www.R-project.org/>.
-* Schliep, K. P. 2011. phangorn: phylogenetic analysis in R. *Bioinformatics* 27(4): 592-593.
-
