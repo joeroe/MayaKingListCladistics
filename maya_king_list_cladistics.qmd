@@ -77,7 +77,7 @@ king_lists_hclust$labels <- rownames(king_lists)
 
 ```{r fig-hclust}
 #| fig-cap: Dendrogram from hierarchical clustering
-ggtree(king_lists_hclust, layout = "roundrect") +
+ggtree(king_lists_hclust, layout = "roundrect", branch.length = "none") +
   geom_tiplab() +
   hexpand(0.01)
 ```
@@ -86,6 +86,7 @@ ggtree(king_lists_hclust, layout = "roundrect") +
 
 If we incorporate the assumption that dissimilarities between specimens arose through a process of copying with error (either from each other or from the original), we can generate a more informative tree using phylogenetic methods.
 We use the 'branch and bound' algorithm [@HendyPenny1982] to find the most parsimonious trees, i.e. those that require the least number of copying errors.
+Branch length, indicating the intervening dissimilarity between nodes, was calculated using Grafen's [-@Grafen1989] method.
 Phylogenetic analyses were conducted using the R packages ape [@ParadisSchliep2019] and phangorn [@Schliep2011].
 
 ```{r phylo}
@@ -104,7 +105,8 @@ From these we derive the consensus tree, which only includes clades that are fou
 #| fig-cap: Unrooted consensus phylogenetic tree
 king_lists_phylo |>
   consensus() |>
-  ggtree(layout = "roundrect", ) +
+  compute.brlen(method = "Grafen", power = 1) |>
+  ggtree(layout = "roundrect") +
   geom_tiplab() +
   hexpand(0.01)
 ```
@@ -133,6 +135,7 @@ king_lists_phylo_con <- makeNodeLabel(king_lists_phylo_con, prefix = "*A")
 ```{r fig-phylo-rooted}
 #| fig-cap: Rooted consensus phylogenetic tree
 king_lists_phylo_con |>
+  compute.brlen(method = "Grafen", power = 1) |>
   ggtree(layout = "roundrect") +
   geom_tiplab() +
   geom_nodelab(geom = "label") +
