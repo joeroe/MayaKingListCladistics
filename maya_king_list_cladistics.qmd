@@ -1,9 +1,22 @@
 ---
 title: "Cladistic analysis of Maya king lists"
 author:
-  - name: "Joe Roe"
-    email: "jar@hum.ku.dk"
-    affiliation: "University of Copenhagen"
+  - name: Joe Roe
+    orcid: 0000-0002-1011-1244
+    email: jar@hum.ku.dk
+    affiliations: 
+    - ref: tors
+  - name: Christophe Helmke
+    orcid: 0000-0003-3691-7075
+    email: cgbh@hum.ku.dk
+    affiliations: 
+    - ref: tors
+affiliations:
+  - id: tors
+    name: University of Copenhagen
+    department: Department of Cross-Cultural and Regional Studies
+    country: Denmark
+    url: https://ccrs.ku.dk
 date: last-modified
 language: 
   title-block-published: "Date"
@@ -55,8 +68,12 @@ king_lists <- read_xlsx(here("data", "king-lists.xlsx"), col_types = "text", n_m
   mutate(across(-specimen, as.factor))
 ```
 
-This document describes a cladistic analysis of `r nrow(king_lists)` Maya king lists described in terms of `r ncol(king_lists) - 1` categorical traits.
-One known specimen (MintMus1983.172.40) was excluded from the analysis as it is only partially recorded.
+This document describes the cladistic analysis of Maya king lists from our forthcoming paper:
+
+> Helmke, Christophe, Vepretskii, Sergei, and Roe, Joe. in prep. Towards a Textual Criticism of Classic Maya Historical Sources.
+
+The analysis used `r nrow(king_lists)` king lists, described in terms of `r ncol(king_lists) - 1` categorical traits.
+One known specimen (MintMus1983.172.40) was excluded as it is only partially recorded.
 The analysis was performed in `r R.version$version.string` [@R2025] and visualised with ggtree [@YuEtAl2017; @Yu2020; @Yu2022].
 
 There are several methods we can use to generate a dendrogram of this data:
