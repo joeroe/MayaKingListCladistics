@@ -42,19 +42,21 @@ suppressPackageStartupMessages({
 
 
 ```{r data-king-lists, message=FALSE}
-king_lists <- read_xlsx(here("data", "king-lists.xlsx"), col_types = "text") |>
-  select(-c(archetype, ...16)) |>
+king_lists <- read_xlsx(here("data", "king-lists.xlsx"), col_types = "text", n_max = 75) |>
+  select(-c(archetype)) |>
   pivot_longer(!c(Ruler, variants), names_to = "specimen") |>
   mutate(
     value = replace_na(value, "―"), # character absent
     value = na_if(value, "#"),# 
     value = na_if(value, "?") # lemmas
   ) |>
-  pivot_wider(id_cols = specimen, names_from = c(Ruler, variants)) |> 
+  filter(specimen != "MintMus1983.172.40") |> # Too many NAs
+  pivot_wider(id_cols = specimen, names_from = c(Ruler, variants)) |>
   mutate(across(-specimen, as.factor))
 ```
 
 This document describes a cladistic analysis of `r nrow(king_lists)` Maya king lists described in terms of `r ncol(king_lists) - 1` categorical traits.
+One known specimen (MintMus1983.172.40) was excluded from the analysis as it is only partially recorded.
 The analysis was performed in `r R.version$version.string` [@R2025] and visualised with ggtree [@YuEtAl2017; @Yu2020; @Yu2022].
 
 There are several methods we can use to generate a dendrogram of this data:
@@ -102,7 +104,7 @@ From these we derive the consensus tree, which only includes clades that are fou
 #| fig-cap: Unrooted consensus phylogenetic tree
 king_lists_phylo |>
   consensus() |>
-  ggtree(layout = "roundrect") +
+  ggtree(layout = "roundrect", ) +
   geom_tiplab() +
   hexpand(0.01)
 ```
