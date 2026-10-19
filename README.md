@@ -1,6 +1,6 @@
 # Cladistic analysis of Maya king lists
 
-<!-- TODO Zenodo badge -->
+[![DOI](https://zenodo.org/badge/1041873256.svg)](https://doi.org/10.5281/zenodo.23470743)
 
 This is a compendium of data and R code accompanying our forthcoming paper:
 
