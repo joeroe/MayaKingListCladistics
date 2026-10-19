@@ -3,7 +3,7 @@ plotAnc(
         king_lists_archetypes, 
         trait, 
         main = colnames(king_lists)[trait],
-        col = colour("muted")(8),
+        col = colour("muted")(9),
         use.edge.length = TRUE, 
         show.node.label = TRUE
 )

@@ -56,7 +56,6 @@ suppressPackageStartupMessages({
 
 ```{r data-king-lists, message=FALSE}
 king_lists <- read_xlsx(here("data", "king-lists.xlsx"), col_types = "text", n_max = 75) |>
-  select(-c(archetype)) |>
   pivot_longer(!c(Ruler, variants), names_to = "specimen") |>
   mutate(
     value = replace_na(value, "―"), # character absent
@@ -79,7 +78,7 @@ The analysis was performed in `r R.version$version.string` [@R2025] and visualis
 There are several methods we can use to generate a dendrogram of this data:
 the simplest, hierarchical clustering, only considers the relative 'dissimilarity' between specimens;
 the unrooted phylogenetic tree introduces the assumption that these dissimilarities are the result of a process of copying-with-error;
-the rooted phylogenetic tree further assumes that specimen K1372 is the most conservative copy.
+the rooted phylogenetic tree further assumes that the reconstructed 'archetype' is at the base of the tree.
 
 ## Hierarchical clustering
 
@@ -123,7 +122,7 @@ From these we derive the consensus tree, which only includes clades that are fou
 king_lists_phylo |>
   consensus() |>
   compute.brlen(method = "Grafen", power = 1) |>
-  ggtree(layout = "roundrect") +
+  ggtree(layout = "roundrect", ladderize = FALSE) +
   geom_tiplab() +
   hexpand(0.01)
 ```
@@ -135,12 +134,12 @@ This is within the typical range for cultural phylogenies [@CollardEtAl2006].
 
 ## Rooted phylogenetic tree
 
-Further assuming that K1372 is the most conservative copy allows us to 'root' the trees above, i.e. ensure that this specimen is the first branch.
+Further assuming that the reconstructed archetype is origin of the branching process allows us to 'root' the trees above, i.e. ensure that this specimen is the basal branch.
 
 ```{r phylo-rooted}
 king_lists_phylo_rooted <- root(
   king_lists_phylo, 
-  outgroup = "1372",
+  outgroup = "archetype",
   resolve.root = TRUE,
   edgelabel = TRUE
 )
@@ -153,7 +152,7 @@ king_lists_phylo_con <- makeNodeLabel(king_lists_phylo_con, prefix = "*A")
 #| fig-cap: Rooted consensus phylogenetic tree
 king_lists_phylo_con |>
   compute.brlen(method = "Grafen", power = 1) |>
-  ggtree(layout = "roundrect") +
+  ggtree(layout = "roundrect", ladderize = FALSE) +
   geom_tiplab() +
   geom_nodelab(geom = "label") +
   hexpand(0.01)
