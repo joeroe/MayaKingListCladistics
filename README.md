@@ -4,8 +4,10 @@
 
 This is a compendium of data and R code accompanying our forthcoming paper:
 
-> Helmke, Christophe, Vepretskii, Sergei, and Roe, Joe. in prep. Towards a 
-> Textual Criticism of Classic Maya Historical Sources.
+> Helmke, Christophe, Vepretskii, Sergei, and Roe, Joe. in prep. Hacia una 
+> crítica textual de las fuentes históricas mayas del periodo Clásico [Towards 
+> a Textual Criticism of Classic Maya Historical Sources]. Under review for
+> *Estudios de Cultura Maya*.
 
 It describes a a cladistic analysis of Maya king lists with the aim of
 reconstructing the sequence of their authorship.
@@ -27,8 +29,10 @@ analysis. You can restore this environment with
 
 Please cite the original paper which this compendium accompanies:
 
-> Helmke, Christophe, Vepretskii, Sergei, and Roe, Joe. in prep. Towards a 
-> Textual Criticism of Classic Maya Historical Sources.
+> Helmke, Christophe, Vepretskii, Sergei, and Roe, Joe. in prep. Hacia una 
+> crítica textual de las fuentes históricas mayas del periodo Clásico [Towards 
+> a Textual Criticism of Classic Maya Historical Sources]. Under review for
+> *Estudios de Cultura Maya*.
 
 ## License
 
