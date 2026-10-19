@@ -9,7 +9,7 @@ This is a compendium of data and R code accompanying our forthcoming paper:
 > a Textual Criticism of Classic Maya Historical Sources]. Under review for
 > *Estudios de Cultura Maya*.
 
-It describes a a cladistic analysis of Maya king lists with the aim of
+It describes a cladistic analysis of Maya king lists with the aim of
 reconstructing the sequence of their authorship.
 
 ## Usage
